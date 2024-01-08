@@ -140,9 +140,9 @@ bool handleMotion(State* state, char c, std::string motion) {
         } else {
             state->prevKeys = "";
         }
-        return TRUE;
+        return true;
     } else {
-        return FALSE;
+        return false;
     }
 }
 
@@ -163,6 +163,9 @@ int minimum(int a, int b) {
 }
 
 void sanityCheckRowColOutOfBounds(State* state) {
+    if (state->data.size() == 0) {
+        state->data.push_back("");
+    }
     if (state->row >= state->data.size()) {
         state->row = state->data.size() - 1;
     }
